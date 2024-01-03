@@ -68,16 +68,16 @@ input {
     box-sizing: border-box;
 }
 
-.btn {
-    margin-top: 50px;
-    width: 100%;
-    padding: 1rem;
-    border-radius: 4px;
-    background-color: #2c862f;
-    color: #fff;
-    border: none;
-    cursor: pointer;
-}
+/*.btn {*/
+/*    margin-top: 50px;*/
+/*    width: 100%;*/
+/*    padding: 1rem;*/
+/*    border-radius: 4px;*/
+/*    background-color: #2c862f;*/
+/*    color: #fff;*/
+/*    border: none;*/
+/*    cursor: pointer;*/
+/*}*/
 
 .error{
     color: #842029;

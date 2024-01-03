@@ -15,15 +15,16 @@
 
             <div class="main-panel">
                 <div class="content-wrapper">
-                    <div class="page-header">
+                    <div class="page-header ">
                         <h3 class="page-title"> Add User </h3>
+                        <div class="d-flex">
+                            <a class="btn btn-danger " href="#">Delete User</a>
+                        </div>
                     </div>
                     <div class="row">
                         <div class="col-md-6 grid-margin stretch-card">
                             <div class="card">
                                 <div class="card-body">
-{{--                                    <h4 class="card-title">Default form</h4>--}}
-
                                     <form class="forms-sample" action="{{ route("users.update",$users->id) }}" method="post">
                                         @method("PUT")
                                         @csrf

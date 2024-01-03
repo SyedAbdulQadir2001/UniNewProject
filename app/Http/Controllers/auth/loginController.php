@@ -8,6 +8,7 @@ use App\Models\Auth\User;
 use App\Models\Students;
 use Illuminate\Support\Facades\DB;
 use App\Models\Session;
+use Illuminate\Validation\Rules\Password;
 use Illuminate\Support\Facades\Hash;
 
 date_default_timezone_set("Asia/Karachi");
@@ -17,26 +18,42 @@ class loginController extends Controller
 
     function Signup(Request $req){
 
+        $req->validate([
+            "email" => ["required"],
+            "password" => ['required', Password::min(8)->mixedCase()->numbers()->symbols()->uncompromised()],
+            "confirm_password" => ["required_with:password|same:password",Password::min(8)->mixedCase()->numbers()->symbols()->uncompromised()]
+
+        ]);
+
         if($req->password === $req->confirm_password){
-            $user = new User;
-            $user->email = $req->email;
-            $user->password = Hash::make($req->password);
-            $user->role = 0;
-            $user->save();
 
-            $id = User::where("email", $req->email)->first();
+            $countEmail = User::all()->where("email", $req->email)->count();
 
-            Students::insert([
-                "name" => $req->name,
-                "fatherName" => null,
-                "cnic" => null,
-                "address" => null,
-                "dob" => null,
-                "rno" => null,
-                "user_id" => $id->id,
-            ]);
+            if($countEmail != 1){
 
-            return redirect("/dashboard");
+
+                $user = new User;
+                $user->email = $req->email;
+                $user->password = Hash::make($req->password);
+                $user->role = 0;
+                $user->save();
+
+                $id = User::where("email", $req->email)->first();
+
+                Students::insert([
+                    "name" => $req->name,
+                    "fatherName" => null,
+                    "cnic" => null,
+                    "address" => null,
+                    "dob" => null,
+                    "rno" => null,
+                    "user_id" => $id->id,
+                ]);
+                return redirect("/dashboard");
+            }else{
+                return redirect()->back()->with("error", "Email Already Registed");
+            }
+
         }else{
             // If Password or Confirm password not match redirect to Signup page with error
             return redirect("/");

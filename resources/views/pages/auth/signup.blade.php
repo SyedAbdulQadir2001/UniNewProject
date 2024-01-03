@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Signup Page</title>
     <link rel="stylesheet" href="{{asset("/assets/css/authStyle.css")}}">
+    <link rel="stylesheet" href="{{ asset("/assets/css/style.css") }}">
 </head>
 <body>
 
@@ -18,28 +19,53 @@
         <div class="logo">
             <img src="/assets/images/logo.png" alt="" srcset="">
         </div>
-        <h2>Sign In</h2>
+        <h2 class="text-white pb-3">Sign In</h2>
+        @session("error")
+        <div class="alert alert-danger m-5" role="alert">
+            <h5>{{ $value }}, Please <a href="/signin"> Signin </a></h5>
+        </div>
+        @endsession
+
+        @error("email")
+        {{$message}}
+        @enderror
+        @error("password")
+        <div class="alert alert-danger m-5" role="alert">
+            <h5>{{$message}}</h5>
+        </div>
+        @enderror
         <form action="/signup" method="POST" id="signup-form">
             @csrf
-            <label for="name">Name:</label>
-            <input type="text" id="name" name="name" required>
+            <div class="form-group">
+                <label class="form-label" for="name">Name:</label>
+                <input class="form-control-sm" type="text" id="name" name="name" required>
+            </div>
 
-            <label for="email">Email:</label>
-            <input type="email" id="email" name="email" required>
-
-            <label for="password">Password:</label>
-            <input type="password" id="password" name="password" required>
-
-            <label for="password">Confirm Password:</label>
-            <input type="password" id="password" name="confirm_password" required>
+            <div class="form-group">
+                <label class="form-label" for="email">Email:</label>
+                <input class="form-control-sm" type="email" id="email" name="email" required>
+            </div>
 
 
-            <div class="mt-3 pt-5 bg-warning">
-                <p style="color:white">You Already Have Account?  <a style="text-decoration: none; color:#0069d9; margin-left: 5px;" href="/signin">Signin</a></p>
+            <div class="form-group">
+                <label class="form-label" for="password">Password:</label>
+                <input class="form-control-sm" type="password" id="password" name="password" required>
+            </div>
+
+
+            <div class="form-group">
+                <label class="form-label" for="password">Confirm Password:</label>
+                <input class="form-control-sm" type="password" id="password" name="confirm_password" required>
+            </div>
+
+
+
+            <div class="py-3 ">
+                <p class="text-white">You Already Have Account?  <a style="text-decoration: none" href="/signin">Signin</a></p>
 
             </div>
 
-            <input type="submit" value="Signup">
+            <input class="btn btn-primary" type="submit" value="Signup">
 
         </form>
     </div>

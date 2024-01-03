@@ -83,7 +83,7 @@ class users extends Controller
     public function update(Request $request, string $id)
     {
         //
-        if($request->password === ""){
+        if($request->password === null){
             User::where("id",$id)->update([
                 "email" => $request->email,
                 "role" => $request->role

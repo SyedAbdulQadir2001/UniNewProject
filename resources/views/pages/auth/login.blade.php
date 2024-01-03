@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Signin Page</title>
+    <link rel="stylesheet" href="{{ asset("/assets/css/style.css") }}">
     <link rel="stylesheet" href="{{asset("/assets/css/authStyle.css")}}">
 </head>
 <body>
@@ -45,7 +46,7 @@
                 <span style="color:white;">If you dont have Account  <a style="text-decoration: none; color:#0069d9; margin-left: 5px;" href="/signup">Create New</a></span>
 
             </div>
-            <input class="btn" type="submit" value="Login">
+            <input class="btn btn-gradient-primary" type="submit" value="Login">
 
         </form>
     </div>
