@@ -1,0 +1,64 @@
+Index: .idea/php-test-framework.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/php-test-framework.xml b/.idea/php-test-framework.xml
+new file mode 100644
+--- /dev/null	(date 1701070794848)
++++ b/.idea/php-test-framework.xml	(date 1701070794848)
+@@ -0,0 +1,14 @@
++<?xml version="1.0" encoding="UTF-8"?>
++<project version="4">
++  <component name="PhpTestFrameworkVersionCache">
++    <tools_cache>
++      <tool tool_name="PHPUnit">
++        <cache>
++          <versions>
++            <info id="LocalC:\Users\Dell\Desktop\websites stuff\Dashboard\dashboard\vendor\autoload.php" version="10.4.2" />
++          </versions>
++        </cache>
++      </tool>
++    </tools_cache>
++  </component>
++</project>
+\ No newline at end of file
+Index: routes/api.php
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/routes/api.php b/routes/api.php
+--- a/routes/api.php	
++++ b/routes/api.php	(date 1701070918987)
+@@ -13,12 +13,12 @@
+ | be assigned to the "api" middleware group. Make something great!
+ |
+ */
+-Route::get("/ip", function(){
+-    return $_SERVER['REMOTE_ADDR'];
+ 
+-});
++//Route::get("/ip", function(){
++//    return $_SERVER['REMOTE_ADDR'];
++//});
+ 
+ 
+-Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
+-//    return $request->user();
+-});
++//Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
++////    return $request->user();
++//});
+Index: .phpunit.result.cache
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.phpunit.result.cache b/.phpunit.result.cache
+new file mode 100644
+--- /dev/null	(date 1701070772622)
++++ b/.phpunit.result.cache	(date 1701070772622)
+@@ -0,0 +1,1 @@
++{"version":1,"defects":[],"times":{"Tests\\Unit\\ExampleTest::test_that_true_is_true":0.009,"Tests\\Feature\\ExampleTest::test_the_application_returns_a_successful_response":0.064}}
+\ No newline at end of file
